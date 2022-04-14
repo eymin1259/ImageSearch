@@ -13,10 +13,9 @@ protocol CacheServiceType {
 
 final class CacheService : CacheServiceType{
     
-    static let shared = CacheService()
     let cachedImage: NSCache<NSURL, NSData>
     
-    private init() {
+    init() {
         cachedImage = .init()
         cachedImage.countLimit = 1000
     }

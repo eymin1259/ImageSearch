@@ -23,12 +23,13 @@ final class PhotoReactor : Reactor {
     }
     
     let initialState: State
-    
+    var photoRepository : PhotoRepositoryType
     
     // MARK: Initializers
     
     init(photoRepository : PhotoRepositoryType) {
         self.initialState = State()
+        self.photoRepository = photoRepository
     }
 }
 

@@ -6,21 +6,23 @@
 //
 
 import UIKit
+import Swinject
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    let container = Container()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
+        //DI
+        container.registerDependencies()
+        
+        // rootViewController
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
-        let mainViewController = ViewController() // 맨 처음 보여줄 ViewController
-        window?.rootViewController = mainViewController
+        window = UIWindow(windowScene: windowScene)
+        let photoVC = container.resolve(PhotoViewController.self)!
+        window?.rootViewController = photoVC
         window?.makeKeyAndVisible()
     }
 

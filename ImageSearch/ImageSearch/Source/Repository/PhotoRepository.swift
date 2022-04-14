@@ -14,11 +14,11 @@ protocol PhotoRepositoryType {
 
 final class PhotoRepository : PhotoRepositoryType {
     
-    var networkService : NetworkServiceType
     var cacheService : CacheServiceType
+    var networkService : NetworkServiceType
     
-    init(networkService : NetworkServiceType, cacheService : CacheServiceType) {
-        self.networkService = networkService
+    init(cacheService : CacheServiceType, networkService : NetworkServiceType) {
         self.cacheService = cacheService
+        self.networkService = networkService
     }
 }
