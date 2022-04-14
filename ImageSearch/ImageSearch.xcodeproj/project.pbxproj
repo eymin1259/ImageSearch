@@ -9,12 +9,19 @@
 /* Begin PBXBuildFile section */
 		A1CB21DC2804D972006489FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DB2804D972006489FA /* AppDelegate.swift */; };
 		A1CB21DE2804D972006489FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DD2804D972006489FA /* SceneDelegate.swift */; };
-		A1CB21E02804D972006489FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DF2804D972006489FA /* ViewController.swift */; };
+		A1CB21E02804D972006489FA /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DF2804D972006489FA /* PhotoViewController.swift */; };
 		A1CB21E52804D974006489FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1CB21E42804D974006489FA /* Assets.xcassets */; };
 		A1CB21E82804D974006489FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CB21E62804D974006489FA /* LaunchScreen.storyboard */; };
 		A1CB21F32804D974006489FA /* ImageSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21F22804D974006489FA /* ImageSearchTests.swift */; };
 		A1CB21FD2804D974006489FA /* ImageSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21FC2804D974006489FA /* ImageSearchUITests.swift */; };
 		A1CB21FF2804D974006489FA /* ImageSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21FE2804D974006489FA /* ImageSearchUITestsLaunchTests.swift */; };
+		A1CB221528084378006489FA /* PhotoReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB221428084378006489FA /* PhotoReactor.swift */; };
+		A1CB2218280846ED006489FA /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB2217280846ED006489FA /* Container.swift */; };
+		A1CB221B2808470E006489FA /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = A1CB221A2808470E006489FA /* Swinject */; };
+		A1CB221E28085299006489FA /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1CB221D28085299006489FA /* ReactorKit */; };
+		A1CB22212808561A006489FA /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB22202808561A006489FA /* PhotoRepository.swift */; };
+		A1CB22252808567D006489FA /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB22242808567D006489FA /* CacheService.swift */; };
+		A1CB22272808569B006489FA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB22262808569B006489FA /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +45,7 @@
 		A1CB21D82804D972006489FA /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CB21DB2804D972006489FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1CB21DD2804D972006489FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A1CB21DF2804D972006489FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A1CB21DF2804D972006489FA /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		A1CB21E42804D974006489FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1CB21E72804D974006489FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1CB21E92804D974006489FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ImageSearch/Supporting/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -47,6 +54,11 @@
 		A1CB21F82804D974006489FA /* ImageSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CB21FC2804D974006489FA /* ImageSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchUITests.swift; sourceTree = "<group>"; };
 		A1CB21FE2804D974006489FA /* ImageSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A1CB221428084378006489FA /* PhotoReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoReactor.swift; sourceTree = "<group>"; };
+		A1CB2217280846ED006489FA /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		A1CB22202808561A006489FA /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
+		A1CB22242808567D006489FA /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
+		A1CB22262808569B006489FA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CB221E28085299006489FA /* ReactorKit in Frameworks */,
+				A1CB221B2808470E006489FA /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +149,7 @@
 				A1CB22132804DAD6006489FA /* App */,
 				A1CB22122804DACC006489FA /* Model */,
 				A1CB22112804DAC5006489FA /* Service */,
+				A1CB221F28085607006489FA /* Repository */,
 				A1CB22102804DAC0006489FA /* Reactor */,
 				A1CB220F2804DAB9006489FA /* ViewController */,
 				A1CB220E2804DAB3006489FA /* View */,
@@ -161,7 +176,7 @@
 		A1CB220F2804DAB9006489FA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A1CB21DF2804D972006489FA /* ViewController.swift */,
+				A1CB21DF2804D972006489FA /* PhotoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -169,6 +184,7 @@
 		A1CB22102804DAC0006489FA /* Reactor */ = {
 			isa = PBXGroup;
 			children = (
+				A1CB221428084378006489FA /* PhotoReactor.swift */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -176,6 +192,8 @@
 		A1CB22112804DAC5006489FA /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A1CB222328085632006489FA /* CacheService */,
+				A1CB222228085626006489FA /* NetworkService */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -192,8 +210,41 @@
 			children = (
 				A1CB21DD2804D972006489FA /* SceneDelegate.swift */,
 				A1CB21DB2804D972006489FA /* AppDelegate.swift */,
+				A1CB2216280846DD006489FA /* DI */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		A1CB2216280846DD006489FA /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				A1CB2217280846ED006489FA /* Container.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		A1CB221F28085607006489FA /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				A1CB22202808561A006489FA /* PhotoRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		A1CB222228085626006489FA /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				A1CB22262808569B006489FA /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		A1CB222328085632006489FA /* CacheService */ = {
+			isa = PBXGroup;
+			children = (
+				A1CB22242808567D006489FA /* CacheService.swift */,
+			);
+			path = CacheService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +263,10 @@
 			dependencies = (
 			);
 			name = ImageSearch;
+			packageProductDependencies = (
+				A1CB221A2808470E006489FA /* Swinject */,
+				A1CB221D28085299006489FA /* ReactorKit */,
+			);
 			productName = ImageSearch;
 			productReference = A1CB21D82804D972006489FA /* ImageSearch.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +339,10 @@
 				Base,
 			);
 			mainGroup = A1CB21CF2804D972006489FA;
+			packageReferences = (
+				A1CB22192808470E006489FA /* XCRemoteSwiftPackageReference "Swinject" */,
+				A1CB221C28085299006489FA /* XCRemoteSwiftPackageReference "ReactorKit" */,
+			);
 			productRefGroup = A1CB21D92804D972006489FA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -326,8 +385,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1CB21E02804D972006489FA /* ViewController.swift in Sources */,
+				A1CB221528084378006489FA /* PhotoReactor.swift in Sources */,
+				A1CB21E02804D972006489FA /* PhotoViewController.swift in Sources */,
+				A1CB22272808569B006489FA /* NetworkService.swift in Sources */,
+				A1CB22252808567D006489FA /* CacheService.swift in Sources */,
+				A1CB2218280846ED006489FA /* Container.swift in Sources */,
 				A1CB21DC2804D972006489FA /* AppDelegate.swift in Sources */,
+				A1CB22212808561A006489FA /* PhotoRepository.swift in Sources */,
 				A1CB21DE2804D972006489FA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,6 +728,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A1CB22192808470E006489FA /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		A1CB221C28085299006489FA /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1CB221A2808470E006489FA /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1CB22192808470E006489FA /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		A1CB221D28085299006489FA /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1CB221C28085299006489FA /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A1CB21D02804D972006489FA /* Project object */;
 }
