@@ -565,7 +565,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YB8GA5MLV5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ImageSearch/Info.plist;
+				INFOPLIST_FILE = ImageSearch/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -593,7 +593,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YB8GA5MLV5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ImageSearch/Info.plist;
+				INFOPLIST_FILE = ImageSearch/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
