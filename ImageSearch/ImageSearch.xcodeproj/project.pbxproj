@@ -22,6 +22,7 @@
 		A1CB22212808561A006489FA /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB22202808561A006489FA /* PhotoRepository.swift */; };
 		A1CB22252808567D006489FA /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB22242808567D006489FA /* CacheService.swift */; };
 		A1CB22272808569B006489FA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB22262808569B006489FA /* NetworkService.swift */; };
+		A1CB222B280A5293006489FA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1CB222A280A5293006489FA /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CB222B280A5293006489FA /* SnapKit in Frameworks */,
 				A1CB221E28085299006489FA /* ReactorKit in Frameworks */,
 				A1CB221B2808470E006489FA /* Swinject in Frameworks */,
 			);
@@ -147,8 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				A1CB22132804DAD6006489FA /* App */,
-				A1CB22122804DACC006489FA /* Model */,
-				A1CB22112804DAC5006489FA /* Service */,
+				A1CB2228280A4E38006489FA /* Data */,
 				A1CB221F28085607006489FA /* Repository */,
 				A1CB22102804DAC0006489FA /* Reactor */,
 				A1CB220F2804DAB9006489FA /* ViewController */,
@@ -189,15 +190,6 @@
 			path = Reactor;
 			sourceTree = "<group>";
 		};
-		A1CB22112804DAC5006489FA /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				A1CB222328085632006489FA /* CacheService */,
-				A1CB222228085626006489FA /* NetworkService */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		A1CB22122804DACC006489FA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,20 +223,30 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		A1CB222228085626006489FA /* NetworkService */ = {
+		A1CB222228085626006489FA /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				A1CB22262808569B006489FA /* NetworkService.swift */,
 			);
-			path = NetworkService;
+			path = Network;
 			sourceTree = "<group>";
 		};
-		A1CB222328085632006489FA /* CacheService */ = {
+		A1CB222328085632006489FA /* CacheStorage */ = {
 			isa = PBXGroup;
 			children = (
 				A1CB22242808567D006489FA /* CacheService.swift */,
 			);
-			path = CacheService;
+			path = CacheStorage;
+			sourceTree = "<group>";
+		};
+		A1CB2228280A4E38006489FA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A1CB22122804DACC006489FA /* Model */,
+				A1CB222228085626006489FA /* Network */,
+				A1CB222328085632006489FA /* CacheStorage */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +268,7 @@
 			packageProductDependencies = (
 				A1CB221A2808470E006489FA /* Swinject */,
 				A1CB221D28085299006489FA /* ReactorKit */,
+				A1CB222A280A5293006489FA /* SnapKit */,
 			);
 			productName = ImageSearch;
 			productReference = A1CB21D82804D972006489FA /* ImageSearch.app */;
@@ -342,6 +345,7 @@
 			packageReferences = (
 				A1CB22192808470E006489FA /* XCRemoteSwiftPackageReference "Swinject" */,
 				A1CB221C28085299006489FA /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				A1CB2229280A5293006489FA /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = A1CB21D92804D972006489FA /* Products */;
 			projectDirPath = "";
@@ -746,6 +750,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		A1CB2229280A5293006489FA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -758,6 +770,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A1CB221C28085299006489FA /* XCRemoteSwiftPackageReference "ReactorKit" */;
 			productName = ReactorKit;
+		};
+		A1CB222A280A5293006489FA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1CB2229280A5293006489FA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
