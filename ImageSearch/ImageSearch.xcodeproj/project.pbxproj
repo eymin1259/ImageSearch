@@ -23,6 +23,7 @@
 		A1CB22252808567D006489FA /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB22242808567D006489FA /* CacheService.swift */; };
 		A1CB22272808569B006489FA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB22262808569B006489FA /* NetworkService.swift */; };
 		A1CB222B280A5293006489FA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1CB222A280A5293006489FA /* SnapKit */; };
+		A1CB222D280A6722006489FA /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB222C280A6722006489FA /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		A1CB22202808561A006489FA /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		A1CB22242808567D006489FA /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		A1CB22262808569B006489FA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A1CB222C280A6722006489FA /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 		A1CB220E2804DAB3006489FA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1CB222C280A6722006489FA /* PhotoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1CB221528084378006489FA /* PhotoReactor.swift in Sources */,
+				A1CB222D280A6722006489FA /* PhotoCell.swift in Sources */,
 				A1CB21E02804D972006489FA /* PhotoViewController.swift in Sources */,
 				A1CB22272808569B006489FA /* NetworkService.swift in Sources */,
 				A1CB22252808567D006489FA /* CacheService.swift in Sources */,
