@@ -49,8 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A1863B25280BFEFD00C665DE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = SOURCE_ROOT; };
-		A1863B27280C037400C665DE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = SOURCE_ROOT; };
+		A1863B25280BFEFD00C665DE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ImageSearch/Source/Data/Model/Image.swift; sourceTree = SOURCE_ROOT; };
+		A1863B27280C037400C665DE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Response.swift; path = ImageSearch/Source/Data/Model/Response.swift; sourceTree = SOURCE_ROOT; };
 		A1863B29280C091400C665DE /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
 		A1CB21D82804D972006489FA /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CB21DB2804D972006489FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1863B2B280C3EFF00C665DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1863B25280BFEFD00C665DE /* Image.swift */,
+				A1863B27280C037400C665DE /* Response.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A1CB21CF2804D972006489FA = {
 			isa = PBXGroup;
 			children = (
@@ -204,15 +213,6 @@
 			path = Reactor;
 			sourceTree = "<group>";
 		};
-		A1CB22122804DACC006489FA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A1863B25280BFEFD00C665DE /* Image.swift */,
-				A1863B27280C037400C665DE /* Response.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		A1CB22132804DAD6006489FA /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,7 +258,7 @@
 		A1CB2228280A4E38006489FA /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A1CB22122804DACC006489FA /* Model */,
+				A1863B2B280C3EFF00C665DE /* Model */,
 				A1CB222228085626006489FA /* Network */,
 				A1CB222328085632006489FA /* CacheStorage */,
 			);
