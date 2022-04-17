@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // rootViewController
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let photoVC = container.resolve(PhotoViewController.self)!
-        window?.rootViewController = photoVC
+        let imageVC = container.resolve(ImageViewController.self)!
+        window?.rootViewController = imageVC
         window?.makeKeyAndVisible()
     }
 

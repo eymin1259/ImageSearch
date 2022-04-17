@@ -24,26 +24,26 @@ extension Container {
     }
     
     private func registerRepository() {
-        register(PhotoRepositoryType.self) {r in
+        register(ImageRepositoryType.self) {r in
             let cache = r.resolve(CacheServiceType.self)!
             let network = r.resolve(NetworkServiceType.self)!
-            let repo = PhotoRepository(cacheService: cache, networkService: network)
+            let repo = ImageRepository(cacheService: cache, networkService: network)
             return repo
         }
     }
     
     private func registerReactor(){
-        register(PhotoReactor.self) {r in
-            let repo = r.resolve(PhotoRepositoryType.self)!
-            let reactor = PhotoReactor(photoRepository: repo)
+        register(ImageReactor.self) {r in
+            let repo = r.resolve(ImageRepositoryType.self)!
+            let reactor = ImageReactor(imageRepository: repo)
             return reactor
         }
     }
     
     private func registerViewController(){
-        register(PhotoViewController.self) {r in
-            let reactor = r.resolve(PhotoReactor.self)!
-            let vc = PhotoViewController(reactor: reactor)
+        register(ImageViewController.self) {r in
+            let reactor = r.resolve(ImageReactor.self)!
+            let vc = ImageViewController(reactor: reactor)
             return vc
         }
     }
