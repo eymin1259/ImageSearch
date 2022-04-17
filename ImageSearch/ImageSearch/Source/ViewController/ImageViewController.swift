@@ -81,11 +81,27 @@ final class ImageViewController : UIViewController, View {
             make.bottom.equalTo(guide)
         }
     }
+}
+
+//MARK: Binding
+extension ImageViewController {
     
     func bind(reactor: ImageReactor) {
-        //action
         
-        //state
-    }
+        // action binding
+        imageSearchBar.rx.text
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .filter { $0 != nil && $0?.isEmpty == false }
+            .map { Reactor.Action.inputQuery($0!) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        // state binding
+        reactor.state
+            .map { $0.imageList}
+            .subscribe { list in
+                print("Debug : state binding list -> \(list) ")
+            }
 
+    }
 }
