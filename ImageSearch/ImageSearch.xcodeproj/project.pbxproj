@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1565FA6280D9CF70071829E /* ImageListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1565FA5280D9CF70071829E /* ImageListSection.swift */; };
 		A1863B1D280BF58300C665DE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1C280BF58300C665DE /* RxCocoa */; };
 		A1863B1F280BF58300C665DE /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1E280BF58300C665DE /* RxRelay */; };
 		A1863B26280BFEFD00C665DE /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1863B25280BFEFD00C665DE /* Image.swift */; };
 		A1863B28280C037400C665DE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1863B27280C037400C665DE /* Response.swift */; };
 		A1863B2A280C091400C665DE /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = A1863B29280C091400C665DE /* Mock.json */; };
+		A1863B31280D8A7500C665DE /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B30280D8A7500C665DE /* RxDataSources */; };
+		A1863B36280D8C2A00C665DE /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B35280D8C2A00C665DE /* RxOptional */; };
 		A1CB21DC2804D972006489FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DB2804D972006489FA /* AppDelegate.swift */; };
 		A1CB21DE2804D972006489FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DD2804D972006489FA /* SceneDelegate.swift */; };
 		A1CB21E02804D972006489FA /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DF2804D972006489FA /* ImageViewController.swift */; };
@@ -49,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A1565FA5280D9CF70071829E /* ImageListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListSection.swift; sourceTree = "<group>"; };
 		A1863B25280BFEFD00C665DE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ImageSearch/Source/Data/Model/Image.swift; sourceTree = SOURCE_ROOT; };
 		A1863B27280C037400C665DE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Response.swift; path = ImageSearch/Source/Data/Model/Response.swift; sourceTree = SOURCE_ROOT; };
 		A1863B29280C091400C665DE /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
@@ -77,9 +81,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1863B36280D8C2A00C665DE /* RxOptional in Frameworks */,
 				A1863B1F280BF58300C665DE /* RxRelay in Frameworks */,
 				A1CB222B280A5293006489FA /* SnapKit in Frameworks */,
 				A1863B1D280BF58300C665DE /* RxCocoa in Frameworks */,
+				A1863B31280D8A7500C665DE /* RxDataSources in Frameworks */,
 				A1CB221E28085299006489FA /* ReactorKit in Frameworks */,
 				A1CB221B2808470E006489FA /* Swinject in Frameworks */,
 			);
@@ -107,6 +113,7 @@
 			children = (
 				A1863B25280BFEFD00C665DE /* Image.swift */,
 				A1863B27280C037400C665DE /* Response.swift */,
+				A1565FA5280D9CF70071829E /* ImageListSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,6 +294,8 @@
 				A1CB222A280A5293006489FA /* SnapKit */,
 				A1863B1C280BF58300C665DE /* RxCocoa */,
 				A1863B1E280BF58300C665DE /* RxRelay */,
+				A1863B30280D8A7500C665DE /* RxDataSources */,
+				A1863B35280D8C2A00C665DE /* RxOptional */,
 			);
 			productName = ImageSearch;
 			productReference = A1CB21D82804D972006489FA /* ImageSearch.app */;
@@ -365,6 +374,8 @@
 				A1CB221C28085299006489FA /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				A1CB2229280A5293006489FA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A1863B19280BF58300C665DE /* XCRemoteSwiftPackageReference "RxSwift" */,
+				A1863B2F280D8A7500C665DE /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				A1863B34280D8C2A00C665DE /* XCRemoteSwiftPackageReference "RxOptional" */,
 			);
 			productRefGroup = A1CB21D92804D972006489FA /* Products */;
 			projectDirPath = "";
@@ -414,6 +425,7 @@
 				A1CB21E02804D972006489FA /* ImageViewController.swift in Sources */,
 				A1CB22272808569B006489FA /* NetworkService.swift in Sources */,
 				A1CB22252808567D006489FA /* CacheService.swift in Sources */,
+				A1565FA6280D9CF70071829E /* ImageListSection.swift in Sources */,
 				A1CB2218280846ED006489FA /* Container.swift in Sources */,
 				A1CB21DC2804D972006489FA /* AppDelegate.swift in Sources */,
 				A1863B28280C037400C665DE /* Response.swift in Sources */,
@@ -765,6 +777,22 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		A1863B2F280D8A7500C665DE /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		A1863B34280D8C2A00C665DE /* XCRemoteSwiftPackageReference "RxOptional" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxOptional";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		A1CB22192808470E006489FA /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject";
@@ -801,6 +829,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A1863B19280BF58300C665DE /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
+		};
+		A1863B30280D8A7500C665DE /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1863B2F280D8A7500C665DE /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+		A1863B35280D8C2A00C665DE /* RxOptional */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1863B34280D8C2A00C665DE /* XCRemoteSwiftPackageReference "RxOptional" */;
+			productName = RxOptional;
 		};
 		A1CB221A2808470E006489FA /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
