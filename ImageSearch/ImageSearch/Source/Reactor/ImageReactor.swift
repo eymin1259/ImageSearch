@@ -16,11 +16,11 @@ final class ImageReactor : Reactor {
     }
     
     enum Mutation {
-        case searchImages([Image])
+        case setImages([Image])
     }
     
     struct State {
-        var imageList = [Image]()
+        var imageSection : [ImageListSection]?
     }
     
     let initialState: State
@@ -45,10 +45,10 @@ extension ImageReactor {
             let data = jsonString!.data(using: .utf8)
             if let data = data,
                let res = try? decoder.decode(Response<Image>.self, from: data) {
-                return Observable.just(Mutation.searchImages(res.documents))
+                return Observable.just(Mutation.setImages(res.documents))
             }
             else{
-                return Observable.just(Mutation.searchImages([]))
+                return Observable.just(Mutation.setImages([]))
             }
      
         }
@@ -58,8 +58,8 @@ extension ImageReactor {
     func reduce(state: State, mutation: ImageReactor.Mutation) -> State {
         var newState = state
         switch mutation {
-        case .searchImages(let imageList):
-            newState.imageList = imageList
+        case .setImages(let imageList):
+            newState.imageSection = [.init(images: imageList)]
         }
         return newState
     }

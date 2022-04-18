@@ -9,12 +9,18 @@ import UIKit
 import ReactorKit
 import SnapKit
 import RxCocoa
+import RxOptional
+import RxDataSources
 
 final class ImageViewController : UIViewController, View {
     
     // MARK: properties
-    var disposeBag : DisposeBag = .init()
     typealias Reactor = ImageReactor
+    var disposeBag : DisposeBag = .init()
+    let collectionDataSource = RxCollectionViewSectionedReloadDataSource<ImageListSection> { datasource, collectionview, index, item in
+        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: ImageCell.id, for: index)
+        return cell
+    }
     
     // MARK: UI
     private var imageSearchBar : UISearchBar = {
@@ -68,11 +74,12 @@ final class ImageViewController : UIViewController, View {
         
         let layout: UICollectionViewFlowLayout = .init()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        let width = (view.frame.width ) / 3
+        layout.minimumLineSpacing = 3
+        layout.minimumInteritemSpacing = 2
+        let width = (view.frame.width - 4 ) / 3
         layout.itemSize = CGSize(width: width, height: width)
         imageCollectionView.collectionViewLayout = layout
+        imageCollectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.id)
         
         imageCollectionView.snp.makeConstraints { make in
             make.top.equalTo(imageSearchBar.snp.bottom)
@@ -98,10 +105,11 @@ extension ImageViewController {
         
         // state binding
         reactor.state
-            .map { $0.imageList}
-            .subscribe { list in
-                print("Debug : state binding list -> \(list) ")
-            }
-
+            .map{$0.imageSection}
+            .replaceNilWith([])
+            .bind(to: imageCollectionView.rx.items(dataSource: collectionDataSource))
+            .disposed(by: self.disposeBag)
+            
+            
     }
 }
