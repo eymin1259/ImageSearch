@@ -21,6 +21,11 @@ final class ImageViewController : UIViewController, View {
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: ImageCell.id, for: index)
         return cell
     }
+    struct CellLayout {
+        static let lineSpacing : CGFloat = 2
+        static let interitemSpacing : CGFloat = 2
+        static let cellNumberPerRow : CGFloat = 3
+    }
     
     // MARK: UI
     private var imageSearchBar : UISearchBar = {
@@ -74,9 +79,9 @@ final class ImageViewController : UIViewController, View {
         
         let layout: UICollectionViewFlowLayout = .init()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.minimumLineSpacing = 3
-        layout.minimumInteritemSpacing = 2
-        let width = (view.frame.width - 4 ) / 3
+        layout.minimumLineSpacing = CellLayout.lineSpacing
+        layout.minimumInteritemSpacing = CellLayout.interitemSpacing
+        let width = (view.frame.width - (CellLayout.interitemSpacing * 2) ) / CellLayout.cellNumberPerRow
         layout.itemSize = CGSize(width: width, height: width)
         imageCollectionView.collectionViewLayout = layout
         imageCollectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.id)
