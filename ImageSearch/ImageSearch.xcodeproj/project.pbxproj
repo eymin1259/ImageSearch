@@ -16,6 +16,7 @@
 		A1863B31280D8A7500C665DE /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B30280D8A7500C665DE /* RxDataSources */; };
 		A1863B36280D8C2A00C665DE /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B35280D8C2A00C665DE /* RxOptional */; };
 		A1CACF712810317C00392192 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A1CACF702810317C00392192 /* Moya */; };
+		A1CACF73281037D100392192 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CACF72281037D100392192 /* ImageAPI.swift */; };
 		A1CB21DC2804D972006489FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DB2804D972006489FA /* AppDelegate.swift */; };
 		A1CB21DE2804D972006489FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DD2804D972006489FA /* SceneDelegate.swift */; };
 		A1CB21E02804D972006489FA /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DF2804D972006489FA /* ImageViewController.swift */; };
@@ -57,6 +58,7 @@
 		A1863B25280BFEFD00C665DE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ImageSearch/Source/Data/Model/Image.swift; sourceTree = SOURCE_ROOT; };
 		A1863B27280C037400C665DE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Response.swift; path = ImageSearch/Source/Data/Model/Response.swift; sourceTree = SOURCE_ROOT; };
 		A1863B29280C091400C665DE /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
+		A1CACF72281037D100392192 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		A1CB21D82804D972006489FA /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CB21DB2804D972006489FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1CB21DD2804D972006489FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				A1CB22262808569B006489FA /* NetworkService.swift */,
+				A1CACF72281037D100392192 /* ImageAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				A1CB2218280846ED006489FA /* Container.swift in Sources */,
 				A1CB21DC2804D972006489FA /* AppDelegate.swift in Sources */,
 				A1863B28280C037400C665DE /* Response.swift in Sources */,
+				A1CACF73281037D100392192 /* ImageAPI.swift in Sources */,
 				A1CB22212808561A006489FA /* ImageRepository.swift in Sources */,
 				A1863B26280BFEFD00C665DE /* Image.swift in Sources */,
 				A1CB21DE2804D972006489FA /* SceneDelegate.swift in Sources */,
