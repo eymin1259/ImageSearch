@@ -15,6 +15,7 @@
 		A1863B2A280C091400C665DE /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = A1863B29280C091400C665DE /* Mock.json */; };
 		A1863B31280D8A7500C665DE /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B30280D8A7500C665DE /* RxDataSources */; };
 		A1863B36280D8C2A00C665DE /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B35280D8C2A00C665DE /* RxOptional */; };
+		A1CACF712810317C00392192 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A1CACF702810317C00392192 /* Moya */; };
 		A1CB21DC2804D972006489FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DB2804D972006489FA /* AppDelegate.swift */; };
 		A1CB21DE2804D972006489FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DD2804D972006489FA /* SceneDelegate.swift */; };
 		A1CB21E02804D972006489FA /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DF2804D972006489FA /* ImageViewController.swift */; };
@@ -83,6 +84,7 @@
 			files = (
 				A1863B36280D8C2A00C665DE /* RxOptional in Frameworks */,
 				A1863B1F280BF58300C665DE /* RxRelay in Frameworks */,
+				A1CACF712810317C00392192 /* Moya in Frameworks */,
 				A1CB222B280A5293006489FA /* SnapKit in Frameworks */,
 				A1863B1D280BF58300C665DE /* RxCocoa in Frameworks */,
 				A1863B31280D8A7500C665DE /* RxDataSources in Frameworks */,
@@ -296,6 +298,7 @@
 				A1863B1E280BF58300C665DE /* RxRelay */,
 				A1863B30280D8A7500C665DE /* RxDataSources */,
 				A1863B35280D8C2A00C665DE /* RxOptional */,
+				A1CACF702810317C00392192 /* Moya */,
 			);
 			productName = ImageSearch;
 			productReference = A1CB21D82804D972006489FA /* ImageSearch.app */;
@@ -376,6 +379,7 @@
 				A1863B19280BF58300C665DE /* XCRemoteSwiftPackageReference "RxSwift" */,
 				A1863B2F280D8A7500C665DE /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				A1863B34280D8C2A00C665DE /* XCRemoteSwiftPackageReference "RxOptional" */,
+				A1CACF6F2810317C00392192 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = A1CB21D92804D972006489FA /* Products */;
 			projectDirPath = "";
@@ -793,6 +797,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		A1CACF6F2810317C00392192 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
 		A1CB22192808470E006489FA /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject";
@@ -839,6 +851,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A1863B34280D8C2A00C665DE /* XCRemoteSwiftPackageReference "RxOptional" */;
 			productName = RxOptional;
+		};
+		A1CACF702810317C00392192 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1CACF6F2810317C00392192 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 		A1CB221A2808470E006489FA /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
