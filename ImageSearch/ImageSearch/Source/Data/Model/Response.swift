@@ -9,7 +9,7 @@ import Foundation
 
 struct Response<Item : Codable> : Codable{
     var meta : Meta
-    var documents : [Item]
+    var documents : Item
 }
 
 extension Response {

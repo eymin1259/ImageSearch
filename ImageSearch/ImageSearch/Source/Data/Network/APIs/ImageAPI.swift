@@ -12,7 +12,9 @@ enum ImageAPI {
     case searchImages(query:String, page:Int)
 }
 
-extension ImageAPI : TargetType {
+extension ImageAPI : BaseServiceAPI {
+    typealias Documents = [Image]
+    
     var baseURL: URL {
         return URL(string: "https://dapi.kakao.com")!
     }
