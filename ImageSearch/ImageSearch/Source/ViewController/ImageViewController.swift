@@ -18,7 +18,8 @@ final class ImageViewController : UIViewController, View {
     typealias Reactor = ImageReactor
     var disposeBag : DisposeBag = .init()
     let collectionDataSource = RxCollectionViewSectionedReloadDataSource<ImageListSection> { datasource, collectionview, index, item in
-        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: ImageCell.id, for: index)
+        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: ImageCell.id, for: index) as! ImageCell
+        cell.setImageData(item)
         return cell
     }
     struct CellLayout {

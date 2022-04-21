@@ -6,19 +6,23 @@
 //
 
 import Foundation
-
+import RxSwift
 
 protocol ImageRepositoryType {
-    
+    func getImages(query: String, page : Int) -> Single<[Image]>
 }
 
 final class ImageRepository : ImageRepositoryType {
     
-    var cacheService : CacheServiceType
     var networkService : NetworkServiceType
     
-    init(cacheService : CacheServiceType, networkService : NetworkServiceType) {
-        self.cacheService = cacheService
+    init(networkService : NetworkServiceType) {
         self.networkService = networkService
+    }
+    
+    func getImages(query: String, page : Int) -> Single<[Image]> {
+        return networkService.request(api: ImageAPI.searchImages(query: query, page: page))
+            .compactMap { $0.documents }
+            .asSingle()
     }
 }

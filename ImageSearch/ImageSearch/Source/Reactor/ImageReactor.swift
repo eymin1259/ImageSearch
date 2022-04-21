@@ -39,18 +39,9 @@ extension ImageReactor {
     func mutate(action: ImageReactor.Action) -> Observable<ImageReactor.Mutation> {
         switch action {
         case .inputQuery(let query):
-            let path = Bundle.main.path(forResource: "Mock", ofType: "json") ?? ""
-            let jsonString = try? String(contentsOfFile: path) ?? ""
-            let decoder = JSONDecoder()
-            let data = jsonString!.data(using: .utf8)
-            if let data = data,
-               let res = try? decoder.decode(Response<Image>.self, from: data) {
-                return Observable.just(Mutation.setImages(res.documents))
-            }
-            else{
-                return Observable.just(Mutation.setImages([]))
-            }
-     
+            return self.imageRepository.getImages(query: query, page: 1)
+                .asObservable()
+                .compactMap { Mutation.setImages($0) }
         }
     }
     
