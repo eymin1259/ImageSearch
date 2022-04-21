@@ -19,15 +19,13 @@ extension Container {
     }
     
     private func registerService(){
-        register(CacheServiceType.self) {r in CacheService()}.inObjectScope(.container)
         register(NetworkServiceType.self) {r in NetworkService()}
     }
     
     private func registerRepository() {
         register(ImageRepositoryType.self) {r in
-            let cache = r.resolve(CacheServiceType.self)!
             let network = r.resolve(NetworkServiceType.self)!
-            let repo = ImageRepository(cacheService: cache, networkService: network)
+            let repo = ImageRepository(networkService: network)
             return repo
         }
     }
