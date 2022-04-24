@@ -35,6 +35,7 @@ final class NetworkService : NetworkServiceType {
         
         let endpoint = MultiTarget.target(api)
         return self.provider.rx.request(endpoint)
+            .filterSuccessfulStatusCodes()
             .asObservable()
             .map {
                 try JSONDecoder().decode(SearchResponse<API.Documents>.self, from: $0.data)
