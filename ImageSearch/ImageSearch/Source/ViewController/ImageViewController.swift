@@ -19,7 +19,7 @@ final class ImageViewController : UIViewController, View {
     var disposeBag : DisposeBag = .init()
     let collectionDataSource = RxCollectionViewSectionedReloadDataSource<ImageListSection> { datasource, collectionview, index, item in
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: ImageCell.id, for: index) as! ImageCell
-        cell.setImageData(item)
+        cell.setImage(with: item.thumbnail_url)
         return cell
     }
     struct Metric {

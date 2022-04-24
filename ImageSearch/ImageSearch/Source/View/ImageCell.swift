@@ -7,31 +7,48 @@
 
 import UIKit
 import Kingfisher
+import SnapKit
 
 final class ImageCell : UICollectionViewCell {
     
     //MARK: properties
     static let id = "ImageCellID"
-    var imageData : Image?
+    let photoImageView : UIImageView = {
+        let imageView : UIImageView = .init(frame: .zero)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     // MARK: initialize
     override init(frame: CGRect) {
       super.init(frame: frame)
-        backgroundColor = .red
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setImageData(_ image : Image){
-        self.imageData = image
-        
-        let iv = UIImageView(frame: .init(origin: .zero, size: self.contentView.frame.size))
-        
-        let url = URL(string: imageData!.thumbnail_url)
-        iv.kf.setImage(with: url)
-
-        self.contentView.addSubview(iv)
+    override func prepareForReuse() {
+      super.prepareForReuse()
+      self.photoImageView.image = nil
+    }
+    
+    func setupConstraints() {
+        self.contentView.addSubview(photoImageView)
+        self.photoImageView.snp.makeConstraints { make in
+            make.edges.equalTo(self.contentView)
+        }
+    }
+    
+    func setImage(with urlString : String) {
+        guard let url = URL(string:urlString) else { return }
+        photoImageView.kf.indicatorType = .activity
+        photoImageView.kf.setImage(
+          with: url,
+          placeholder: nil,
+          options: nil,
+          completionHandler: nil
+        )
     }
 }
