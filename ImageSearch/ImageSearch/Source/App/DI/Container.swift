@@ -15,7 +15,6 @@ extension Container {
         registerRepository()
         registerReactor()
         registerViewController()
-        registerView()
     }
     
     private func registerService(){
@@ -44,9 +43,5 @@ extension Container {
             let vc = ImageViewController(reactor: reactor)
             return vc
         }
-    }
-    
-    private func registerView(){
-        
     }
 }
