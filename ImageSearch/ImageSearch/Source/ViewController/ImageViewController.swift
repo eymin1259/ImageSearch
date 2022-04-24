@@ -22,10 +22,15 @@ final class ImageViewController : UIViewController, View {
         cell.setImageData(item)
         return cell
     }
-    struct CellLayout {
+    struct Metric {
         static let lineSpacing : CGFloat = 2
         static let interitemSpacing : CGFloat = 2
         static let cellNumberPerRow : CGFloat = 3
+        static let sectionInset : UIEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 0)
+        static let itemSize : CGSize = .init(
+            width: (UIScreen.main.bounds.width - (Metric.interitemSpacing * 2) ) / Metric.cellNumberPerRow,
+            height: (UIScreen.main.bounds.width - (Metric.interitemSpacing * 2) ) / Metric.cellNumberPerRow
+        )
     }
     
     // MARK: UI
@@ -79,14 +84,12 @@ final class ImageViewController : UIViewController, View {
         }
         
         let layout: UICollectionViewFlowLayout = .init()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.minimumLineSpacing = CellLayout.lineSpacing
-        layout.minimumInteritemSpacing = CellLayout.interitemSpacing
-        let width = (view.frame.width - (CellLayout.interitemSpacing * 2) ) / CellLayout.cellNumberPerRow
-        layout.itemSize = CGSize(width: width, height: width)
+        layout.sectionInset = Metric.sectionInset
+        layout.minimumLineSpacing = Metric.lineSpacing
+        layout.minimumInteritemSpacing = Metric.interitemSpacing
+        layout.itemSize = Metric.itemSize
         imageCollectionView.collectionViewLayout = layout
         imageCollectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.id)
-        
         imageCollectionView.snp.makeConstraints { make in
             make.top.equalTo(imageSearchBar.snp.bottom)
             make.leading.equalTo(guide)
