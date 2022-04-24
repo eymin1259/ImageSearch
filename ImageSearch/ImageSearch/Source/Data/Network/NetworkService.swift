@@ -17,13 +17,16 @@ protocol NetworkServiceType {
 
 final class NetworkService : NetworkServiceType {
     
+    //MARK: properties
     static let API_KEY = "4837664397ba0a3531b104d0856d7951"
     var provider : MoyaProvider<MultiTarget>
     
+    //MARK: initialize
     init() {
         self.provider = NetworkService.makeProvider()
     }
     
+    //MARK: methods
     static func makeProvider() -> MoyaProvider<MultiTarget> {
         // Set network logger plugin
         let loggerPlugin = NetworkLoggerPlugin()

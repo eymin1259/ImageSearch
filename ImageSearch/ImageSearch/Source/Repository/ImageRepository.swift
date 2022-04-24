@@ -14,12 +14,15 @@ protocol ImageRepositoryType {
 
 final class ImageRepository : ImageRepositoryType {
     
+    //MARK: properties
     var networkService : NetworkServiceType
     
+    //MARK: initialize
     init(networkService : NetworkServiceType) {
         self.networkService = networkService
     }
     
+    //MARK: methods
     func getImages(query: String, page : Int) -> Observable<[Image]> {
         return networkService.request(api: ImageAPI.searchImages(query: query, page: page))
             .compactMap { $0.documents }

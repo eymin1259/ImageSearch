@@ -34,6 +34,7 @@ final class ImageCell : UICollectionViewCell {
       self.photoImageView.image = nil
     }
     
+    //MARK: methods
     func setupConstraints() {
         self.contentView.addSubview(photoImageView)
         self.photoImageView.snp.makeConstraints { make in
