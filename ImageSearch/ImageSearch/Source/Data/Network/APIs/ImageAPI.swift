@@ -15,10 +15,6 @@ enum ImageAPI {
 extension ImageAPI : BaseServiceAPI {
     typealias Documents = [Image]
     
-    var baseURL: URL {
-        return URL(string: "https://dapi.kakao.com")!
-    }
-    
     var path: String {
         switch self {
         case .searchImages(_,_) :
@@ -42,13 +38,6 @@ extension ImageAPI : BaseServiceAPI {
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
         }
-    }
-    
-    var headers: [String : String]? {
-        return [
-            "Content-Type" : "application/json;charset=UTF-8",
-            "Authorization" : "KakaoAK \(NetworkService.API_KEY)"
-        ]
     }
     
     var sampleData: Data {

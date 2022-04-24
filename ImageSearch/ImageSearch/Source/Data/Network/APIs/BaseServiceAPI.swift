@@ -11,3 +11,16 @@ import Moya
 protocol BaseServiceAPI: TargetType {
     associatedtype Documents: Codable
 }
+
+extension BaseServiceAPI {
+    var baseURL: URL {
+        return URL(string: "https://dapi.kakao.com")!
+    }
+    
+    var headers: [String : String]? {
+        return [
+            "Content-Type" : "application/json;charset=UTF-8",
+            "Authorization" : "KakaoAK \(NetworkService.API_KEY)"
+        ]
+    }
+}
