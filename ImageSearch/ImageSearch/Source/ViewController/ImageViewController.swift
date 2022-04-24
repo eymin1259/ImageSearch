@@ -112,6 +112,11 @@ extension ImageViewController {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        imageCollectionView.rx.isReachedBottom
+            .map { Reactor.Action.loadMore }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         // state binding
         reactor.state
             .map{$0.imageSection}

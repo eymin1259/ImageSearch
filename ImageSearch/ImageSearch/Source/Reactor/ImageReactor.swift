@@ -13,6 +13,7 @@ final class ImageReactor : Reactor {
     //MARK: properties
     enum Action {
         case inputQuery(String)
+        case loadMore
     }
     
     enum Mutation {
@@ -45,6 +46,8 @@ extension ImageReactor {
                 .compactMap { list in
                     Mutation.setImages(list.items, list.isEnd)
                 }
+        case .loadMore:
+            
         }
     }
     
