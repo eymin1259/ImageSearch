@@ -11,7 +11,7 @@
 		A1863B1D280BF58300C665DE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1C280BF58300C665DE /* RxCocoa */; };
 		A1863B1F280BF58300C665DE /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1E280BF58300C665DE /* RxRelay */; };
 		A1863B26280BFEFD00C665DE /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1863B25280BFEFD00C665DE /* Image.swift */; };
-		A1863B28280C037400C665DE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1863B27280C037400C665DE /* Response.swift */; };
+		A1863B28280C037400C665DE /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1863B27280C037400C665DE /* SearchResponse.swift */; };
 		A1863B2A280C091400C665DE /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = A1863B29280C091400C665DE /* Mock.json */; };
 		A1863B31280D8A7500C665DE /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B30280D8A7500C665DE /* RxDataSources */; };
 		A1863B36280D8C2A00C665DE /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B35280D8C2A00C665DE /* RxOptional */; };
@@ -20,6 +20,7 @@
 		A1CACF782810482600392192 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A1CACF772810482600392192 /* Moya */; };
 		A1CACF7A2810482600392192 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A1CACF792810482600392192 /* RxMoya */; };
 		A1CACF7E28118B5E00392192 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A1CACF7D28118B5E00392192 /* Kingfisher */; };
+		A1CACF8528153ACB00392192 /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CACF8428153ACB00392192 /* NetworkLoggerPlugin.swift */; };
 		A1CB21DC2804D972006489FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DB2804D972006489FA /* AppDelegate.swift */; };
 		A1CB21DE2804D972006489FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DD2804D972006489FA /* SceneDelegate.swift */; };
 		A1CB21E02804D972006489FA /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB21DF2804D972006489FA /* ImageViewController.swift */; };
@@ -58,10 +59,11 @@
 /* Begin PBXFileReference section */
 		A1565FA5280D9CF70071829E /* ImageListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListSection.swift; sourceTree = "<group>"; };
 		A1863B25280BFEFD00C665DE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ImageSearch/Source/Data/Model/Image.swift; sourceTree = SOURCE_ROOT; };
-		A1863B27280C037400C665DE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Response.swift; path = ImageSearch/Source/Data/Model/Response.swift; sourceTree = SOURCE_ROOT; };
+		A1863B27280C037400C665DE /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResponse.swift; path = ImageSearch/Source/Data/Model/SearchResponse.swift; sourceTree = SOURCE_ROOT; };
 		A1863B29280C091400C665DE /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
 		A1CACF72281037D100392192 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		A1CACF742810463A00392192 /* BaseServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceAPI.swift; sourceTree = "<group>"; };
+		A1CACF8428153ACB00392192 /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 		A1CB21D82804D972006489FA /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CB21DB2804D972006489FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1CB21DD2804D972006489FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A1863B25280BFEFD00C665DE /* Image.swift */,
-				A1863B27280C037400C665DE /* Response.swift */,
+				A1863B27280C037400C665DE /* SearchResponse.swift */,
 				A1565FA5280D9CF70071829E /* ImageListSection.swift */,
 			);
 			path = Model;
@@ -133,6 +135,14 @@
 				A1CACF72281037D100392192 /* ImageAPI.swift */,
 			);
 			path = APIs;
+			sourceTree = "<group>";
+		};
+		A1CACF8328153AB400392192 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				A1CACF8428153ACB00392192 /* NetworkLoggerPlugin.swift */,
+			);
+			path = Plugin;
 			sourceTree = "<group>";
 		};
 		A1CB21CF2804D972006489FA = {
@@ -268,6 +278,7 @@
 			children = (
 				A1CB22262808569B006489FA /* NetworkService.swift */,
 				A1CACF7B281183D100392192 /* APIs */,
+				A1CACF8328153AB400392192 /* Plugin */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -440,9 +451,10 @@
 				A1CB21E02804D972006489FA /* ImageViewController.swift in Sources */,
 				A1CB22272808569B006489FA /* NetworkService.swift in Sources */,
 				A1565FA6280D9CF70071829E /* ImageListSection.swift in Sources */,
+				A1CACF8528153ACB00392192 /* NetworkLoggerPlugin.swift in Sources */,
 				A1CB2218280846ED006489FA /* Container.swift in Sources */,
 				A1CB21DC2804D972006489FA /* AppDelegate.swift in Sources */,
-				A1863B28280C037400C665DE /* Response.swift in Sources */,
+				A1863B28280C037400C665DE /* SearchResponse.swift in Sources */,
 				A1CACF73281037D100392192 /* ImageAPI.swift in Sources */,
 				A1CB22212808561A006489FA /* ImageRepository.swift in Sources */,
 				A1863B26280BFEFD00C665DE /* Image.swift in Sources */,
