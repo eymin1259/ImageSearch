@@ -118,7 +118,5 @@ extension ImageViewController {
             .replaceNilWith([])
             .bind(to: imageCollectionView.rx.items(dataSource: collectionDataSource))
             .disposed(by: self.disposeBag)
-            
-            
     }
 }

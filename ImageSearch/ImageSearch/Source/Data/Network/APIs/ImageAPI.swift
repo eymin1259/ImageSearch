@@ -45,5 +45,4 @@ extension ImageAPI : BaseServiceAPI {
         let jsonString = try? String(contentsOfFile: path)
         return jsonString!.data(using: .utf8)!
     }
-    
 }

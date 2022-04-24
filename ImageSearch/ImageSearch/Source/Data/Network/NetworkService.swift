@@ -17,7 +17,6 @@ protocol NetworkServiceType {
 
 final class NetworkService : NetworkServiceType {
     
-    
     static let API_KEY = "4837664397ba0a3531b104d0856d7951"
     var provider : MoyaProvider<MultiTarget>
     
@@ -31,18 +30,14 @@ final class NetworkService : NetworkServiceType {
         return MoyaProvider<MultiTarget>(plugins: [loggerPlugin])
     }
 
-    func request<API>(api: API) -> Observable<SearchResponse<API.Documents>>  where API : BaseServiceAPI {
-        
+    func request<API>(api: API) -> Observable<SearchResponse<API.Documents>>  where API : BaseServiceAPI { 
         let endpoint = MultiTarget.target(api)
         return self.provider.rx.request(endpoint)
             .filterSuccessfulStatusCodes()
             .asObservable()
-            .map {
-                try JSONDecoder().decode(SearchResponse<API.Documents>.self, from: $0.data)
-            }
+            .map { try JSONDecoder().decode(SearchResponse<API.Documents>.self, from: $0.data) }
             .catch { err in
                 return .empty()
             }
-            
     }
 }
