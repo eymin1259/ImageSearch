@@ -16,11 +16,12 @@ final class ImageReactor : Reactor {
     }
     
     enum Mutation {
-        case setImages([Image])
+        case setImages([Image], Bool)
     }
     
     struct State {
         var imageSection : [ImageListSection]?
+        var isEnd : Bool = false
     }
     
     let initialState: State
@@ -40,8 +41,10 @@ extension ImageReactor {
         switch action {
         case .inputQuery(let query):
             return self.imageRepository.getImages(query: query, page: 1)
-                .ifEmpty(default: [Image]())
-                .compactMap { Mutation.setImages($0) }
+                .ifEmpty(default: List<Image>.init(items: [Image](), isEnd: true))
+                .compactMap { list in
+                    Mutation.setImages(list.items, list.isEnd)
+                }
         }
     }
     
@@ -49,8 +52,9 @@ extension ImageReactor {
     func reduce(state: State, mutation: ImageReactor.Mutation) -> State {
         var newState = state
         switch mutation {
-        case .setImages(let imageList):
+        case .setImages(let imageList, let isEnd):
             newState.imageSection = [.init(images: imageList)]
+            newState.isEnd = isEnd
         }
         return newState
     }
