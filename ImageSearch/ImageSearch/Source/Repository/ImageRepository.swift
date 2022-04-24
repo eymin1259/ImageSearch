@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol ImageRepositoryType {
-    func getImages(query: String, page : Int) -> Single<[Image]>
+    func getImages(query: String, page : Int) -> Observable<[Image]>
 }
 
 final class ImageRepository : ImageRepositoryType {
@@ -20,9 +20,8 @@ final class ImageRepository : ImageRepositoryType {
         self.networkService = networkService
     }
     
-    func getImages(query: String, page : Int) -> Single<[Image]> {
+    func getImages(query: String, page : Int) -> Observable<[Image]> {
         return networkService.request(api: ImageAPI.searchImages(query: query, page: page))
             .compactMap { $0.documents }
-            .asSingle()
     }
 }

@@ -40,7 +40,7 @@ extension ImageReactor {
         switch action {
         case .inputQuery(let query):
             return self.imageRepository.getImages(query: query, page: 1)
-                .asObservable()
+                .ifEmpty(default: [Image]())
                 .compactMap { Mutation.setImages($0) }
         }
     }
