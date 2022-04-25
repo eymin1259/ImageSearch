@@ -9,7 +9,6 @@ import UIKit
 import ReactorKit
 import SnapKit
 import RxCocoa
-import RxOptional
 import RxDataSources
 
 final class ImageViewController : UIViewController, View {
@@ -120,7 +119,6 @@ extension ImageViewController {
         // state binding
         reactor.state
             .map{$0.imageSection}
-            .replaceNilWith([])
             .bind(to: imageCollectionView.rx.items(dataSource: collectionDataSource))
             .disposed(by: self.disposeBag)
     }

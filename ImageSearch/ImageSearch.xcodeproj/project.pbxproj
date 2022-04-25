@@ -14,7 +14,6 @@
 		A1863B28280C037400C665DE /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1863B27280C037400C665DE /* SearchResponse.swift */; };
 		A1863B2A280C091400C665DE /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = A1863B29280C091400C665DE /* Mock.json */; };
 		A1863B31280D8A7500C665DE /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B30280D8A7500C665DE /* RxDataSources */; };
-		A1863B36280D8C2A00C665DE /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B35280D8C2A00C665DE /* RxOptional */; };
 		A1CACF73281037D100392192 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CACF72281037D100392192 /* ImageAPI.swift */; };
 		A1CACF752810463A00392192 /* BaseServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CACF742810463A00392192 /* BaseServiceAPI.swift */; };
 		A1CACF782810482600392192 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A1CACF772810482600392192 /* Moya */; };
@@ -94,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1863B36280D8C2A00C665DE /* RxOptional in Frameworks */,
 				A1863B1F280BF58300C665DE /* RxRelay in Frameworks */,
 				A1CACF782810482600392192 /* Moya in Frameworks */,
 				A1CB222B280A5293006489FA /* SnapKit in Frameworks */,
@@ -332,7 +330,6 @@
 				A1863B1C280BF58300C665DE /* RxCocoa */,
 				A1863B1E280BF58300C665DE /* RxRelay */,
 				A1863B30280D8A7500C665DE /* RxDataSources */,
-				A1863B35280D8C2A00C665DE /* RxOptional */,
 				A1CACF772810482600392192 /* Moya */,
 				A1CACF792810482600392192 /* RxMoya */,
 				A1CACF7D28118B5E00392192 /* Kingfisher */,
@@ -415,7 +412,6 @@
 				A1CB2229280A5293006489FA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A1863B19280BF58300C665DE /* XCRemoteSwiftPackageReference "RxSwift" */,
 				A1863B2F280D8A7500C665DE /* XCRemoteSwiftPackageReference "RxDataSources" */,
-				A1863B34280D8C2A00C665DE /* XCRemoteSwiftPackageReference "RxOptional" */,
 				A1CACF762810482600392192 /* XCRemoteSwiftPackageReference "Moya" */,
 				A1CACF7C28118B5E00392192 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
@@ -832,14 +828,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		A1863B34280D8C2A00C665DE /* XCRemoteSwiftPackageReference "RxOptional" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxOptional";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		A1CACF762810482600392192 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -897,11 +885,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A1863B2F280D8A7500C665DE /* XCRemoteSwiftPackageReference "RxDataSources" */;
 			productName = RxDataSources;
-		};
-		A1863B35280D8C2A00C665DE /* RxOptional */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A1863B34280D8C2A00C665DE /* XCRemoteSwiftPackageReference "RxOptional" */;
-			productName = RxOptional;
 		};
 		A1CACF772810482600392192 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
