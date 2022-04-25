@@ -17,12 +17,17 @@ final class ImageReactor : Reactor {
     }
     
     enum Mutation {
-        case setImages([Image], Bool)
+        case setImages(String, [Image], Bool)
+        case appendImages([Image], Bool)
+        case setLoading(Bool)
     }
     
     struct State {
-        var imageSection : [ImageListSection]?
+        var query : String = ""
+        var page : Int = 1
+        var imageSection : [ImageListSection] = [.init(images: [Image]())]
         var isEnd : Bool = false
+        var isLoading: Bool = false
     }
     
     let initialState: State
@@ -44,10 +49,22 @@ extension ImageReactor {
             return self.imageRepository.getImages(query: query, page: 1)
                 .ifEmpty(default: List<Image>.init(items: [Image](), isEnd: true))
                 .compactMap { list in
-                    Mutation.setImages(list.items, list.isEnd)
+                    Mutation.setImages(query, list.items, list.isEnd)
                 }
-        case .loadMore:
             
+        case .loadMore:
+            guard !self.currentState.isLoading else { return .empty() }
+            guard !self.currentState.isEnd else { return .empty() }
+            let nextPage = self.currentState.page + 1
+            let currentQuery = self.currentState.query
+            let startLoading = Observable<Mutation>.just(.setLoading(true))
+            let endLoading = Observable<Mutation>.just(.setLoading(false))
+            let loadMode = self.imageRepository.getImages(query: currentQuery, page: nextPage)
+                .ifEmpty(default: List<Image>.init(items: [Image](), isEnd: true))
+                .compactMap { list in
+                    Mutation.appendImages(list.items, list.isEnd)
+                }
+            return .concat([startLoading, loadMode, endLoading])
         }
     }
     
@@ -55,10 +72,23 @@ extension ImageReactor {
     func reduce(state: State, mutation: ImageReactor.Mutation) -> State {
         var newState = state
         switch mutation {
-        case .setImages(let imageList, let isEnd):
+        case .setImages(let query, let imageList, let isEnd):
+            newState.query = query
             newState.imageSection = [.init(images: imageList)]
             newState.isEnd = isEnd
+            newState.page = 1
+            return newState
+            
+        case .appendImages(let imageList, let isEnd):
+            let sectionItems = state.imageSection[0].items + imageList
+            newState.imageSection = [.init(images: sectionItems)]
+            newState.isEnd = isEnd
+            newState.page = state.page + 1
+            return newState
+            
+        case .setLoading(let loading):
+            newState.isLoading = loading
+            return newState
         }
-        return newState
     }
 }

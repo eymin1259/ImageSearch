@@ -14,7 +14,7 @@ extension UIScrollView {
             return false
         }
         let bottomEdge = Float(self.contentOffset.y + self.frame.size.height)
-        if CGFloat(bottomEdge) >= self.contentSize.height {
+        if CGFloat(bottomEdge) >= self.contentSize.height - 1 {
             return true
         }
         else {
