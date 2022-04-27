@@ -10,6 +10,8 @@ import ReactorKit
 import SnapKit
 import RxCocoa
 import RxDataSources
+import RxOptional
+import Loaf
 
 final class ImageViewController : UIViewController, View {
     
@@ -121,5 +123,13 @@ extension ImageViewController {
             .map{$0.imageSection}
             .bind(to: imageCollectionView.rx.items(dataSource: collectionDataSource))
             .disposed(by: self.disposeBag)
+        
+        reactor.state
+            .map { $0.errResult }
+            .filterNil()
+            .subscribe(onNext: { [weak self] err in
+                guard let this = self else {return}
+                Loaf("\(err.localizedDescription)", state: .error,location: .bottom, sender: this).show()
+            }).disposed(by: self.disposeBag)
     }
 }

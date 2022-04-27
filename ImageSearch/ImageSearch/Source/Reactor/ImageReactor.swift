@@ -20,6 +20,7 @@ final class ImageReactor : Reactor {
         case setImages(String, [Image], Bool)
         case appendImages([Image], Bool)
         case setLoading(Bool)
+        case showError(Error)
     }
     
     struct State {
@@ -28,6 +29,7 @@ final class ImageReactor : Reactor {
         var imageSection : [ImageListSection] = [.init(images: [Image]())]
         var isEnd : Bool = false
         var isLoading: Bool = false
+        var errResult : Error?
     }
     
     let initialState: State
@@ -47,9 +49,13 @@ extension ImageReactor {
         switch action {
         case .inputQuery(let query):
             return self.imageRepository.getImages(query: query, page: 1)
-                .ifEmpty(default: List<Image>.init(items: [Image](), isEnd: true))
-                .compactMap { list in
-                    Mutation.setImages(query, list.items, list.isEnd)
+                .map { result in
+                    switch result {
+                    case .success(let list):
+                        return Mutation.setImages(query, list.items, list.isEnd)
+                    case .failure(let err):
+                        return Mutation.showError(err)
+                    }
                 }
             
         case .loadMore:
@@ -59,12 +65,16 @@ extension ImageReactor {
             let currentQuery = self.currentState.query
             let startLoading = Observable<Mutation>.just(.setLoading(true))
             let endLoading = Observable<Mutation>.just(.setLoading(false))
-            let loadMode = self.imageRepository.getImages(query: currentQuery, page: nextPage)
-                .ifEmpty(default: List<Image>.init(items: [Image](), isEnd: true))
-                .compactMap { list in
-                    Mutation.appendImages(list.items, list.isEnd)
+            let loadMoreRes = self.imageRepository.getImages(query: currentQuery, page: nextPage)
+                .map { result -> ImageReactor.Mutation in
+                    switch result {
+                    case .success(let list):
+                        return  Mutation.appendImages(list.items, list.isEnd)
+                    case .failure(let err):
+                        return Mutation.showError(err)
+                    }
                 }
-            return .concat([startLoading, loadMode, endLoading])
+            return .concat([startLoading, loadMoreRes, endLoading])
         }
     }
     
@@ -77,6 +87,7 @@ extension ImageReactor {
             newState.imageSection = [.init(images: imageList)]
             newState.isEnd = isEnd
             newState.page = 1
+            newState.errResult = nil
             return newState
             
         case .appendImages(let imageList, let isEnd):
@@ -84,10 +95,15 @@ extension ImageReactor {
             newState.imageSection = [.init(images: sectionItems)]
             newState.isEnd = isEnd
             newState.page = state.page + 1
+            newState.errResult = nil
             return newState
             
         case .setLoading(let loading):
             newState.isLoading = loading
+            return newState
+            
+        case .showError(let err):
+            newState.errResult = err
             return newState
         }
     }

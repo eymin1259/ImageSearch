@@ -9,10 +9,11 @@ import Foundation
 import RxSwift
 import Moya
 import RxMoya
+import UIKit
 
 protocol NetworkServiceType {
     var provider:  MoyaProvider<MultiTarget> { get }
-    func request<API>(api: API) -> Observable<SearchResponse<API.Documents>>  where API : BaseServiceAPI
+    func request<API>(api: API) -> Observable<Result<SearchResponse<API.Documents>, Error>> where API : BaseServiceAPI
 }
 
 final class NetworkService : NetworkServiceType {
@@ -33,14 +34,29 @@ final class NetworkService : NetworkServiceType {
         return MoyaProvider<MultiTarget>(plugins: [loggerPlugin])
     }
 
-    func request<API>(api: API) -> Observable<SearchResponse<API.Documents>>  where API : BaseServiceAPI { 
+    func request<API>(api: API) -> Observable<Result<SearchResponse<API.Documents>, Error>>  where API : BaseServiceAPI {
         let endpoint = MultiTarget.target(api)
         return self.provider.rx.request(endpoint)
             .filterSuccessfulStatusCodes()
             .asObservable()
-            .map { try JSONDecoder().decode(SearchResponse<API.Documents>.self, from: $0.data) }
+            .map {
+                let response = try JSONDecoder().decode(SearchResponse<API.Documents>.self, from: $0.data)
+                return .success(response)
+            }
             .catch { err in
-                return .empty()
+                if let urlErr = err as? URLError,
+                   (urlErr.code == .timedOut || urlErr.code == .notConnectedToInternet) {
+                    return .just(.failure(urlErr))
+                }
+                if let statusCode = (err as? MoyaError)?.response?.statusCode,
+                   400..<500 ~= statusCode {
+                    return .just(.failure(NetworkError.client))
+                }
+                if let statusCode = (err as? MoyaError)?.response?.statusCode,
+                   500..<600 ~= statusCode {
+                    return .just(.failure(NetworkError.server))
+                }
+                return .just(.failure(err))
             }
     }
 }

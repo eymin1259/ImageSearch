@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A10957CC2818278C0005F493 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = A10957CB2818278C0005F493 /* Toast */; };
+		A10957D1281832CD0005F493 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10957D0281832CD0005F493 /* NetworkError.swift */; };
+		A10957D428183F450005F493 /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = A10957D328183F450005F493 /* RxOptional */; };
+		A10957D72819916B0005F493 /* Loaf in Frameworks */ = {isa = PBXBuildFile; productRef = A10957D62819916B0005F493 /* Loaf */; };
 		A1565FA6280D9CF70071829E /* ImageListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1565FA5280D9CF70071829E /* ImageListSection.swift */; };
 		A1863B1D280BF58300C665DE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1C280BF58300C665DE /* RxCocoa */; };
 		A1863B1F280BF58300C665DE /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1E280BF58300C665DE /* RxRelay */; };
@@ -60,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A10957D0281832CD0005F493 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A1565FA5280D9CF70071829E /* ImageListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListSection.swift; sourceTree = "<group>"; };
 		A1863B25280BFEFD00C665DE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ImageSearch/Source/Data/Model/Image.swift; sourceTree = SOURCE_ROOT; };
 		A1863B27280C037400C665DE /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResponse.swift; path = ImageSearch/Source/Data/Model/SearchResponse.swift; sourceTree = SOURCE_ROOT; };
@@ -98,12 +101,13 @@
 				A1CACF782810482600392192 /* Moya in Frameworks */,
 				A1CB222B280A5293006489FA /* SnapKit in Frameworks */,
 				A1CACF7E28118B5E00392192 /* Kingfisher in Frameworks */,
+				A10957D428183F450005F493 /* RxOptional in Frameworks */,
 				A1863B1D280BF58300C665DE /* RxCocoa in Frameworks */,
 				A1863B31280D8A7500C665DE /* RxDataSources in Frameworks */,
 				A1CACF7A2810482600392192 /* RxMoya in Frameworks */,
 				A1CB221E28085299006489FA /* ReactorKit in Frameworks */,
-				A10957CC2818278C0005F493 /* Toast in Frameworks */,
 				A1CB221B2808470E006489FA /* Swinject in Frameworks */,
+				A10957D72819916B0005F493 /* Loaf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +300,7 @@
 				A1CB22262808569B006489FA /* NetworkService.swift */,
 				A1CACF7B281183D100392192 /* APIs */,
 				A1CACF8328153AB400392192 /* Plugin */,
+				A10957D0281832CD0005F493 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -335,7 +340,8 @@
 				A1CACF772810482600392192 /* Moya */,
 				A1CACF792810482600392192 /* RxMoya */,
 				A1CACF7D28118B5E00392192 /* Kingfisher */,
-				A10957CB2818278C0005F493 /* Toast */,
+				A10957D328183F450005F493 /* RxOptional */,
+				A10957D62819916B0005F493 /* Loaf */,
 			);
 			productName = ImageSearch;
 			productReference = A1CB21D82804D972006489FA /* ImageSearch.app */;
@@ -417,7 +423,8 @@
 				A1863B2F280D8A7500C665DE /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				A1CACF762810482600392192 /* XCRemoteSwiftPackageReference "Moya" */,
 				A1CACF7C28118B5E00392192 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				A10957CA2818278C0005F493 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				A10957D228183F450005F493 /* XCRemoteSwiftPackageReference "RxOptional" */,
+				A10957D52819916B0005F493 /* XCRemoteSwiftPackageReference "Loaf" */,
 			);
 			productRefGroup = A1CB21D92804D972006489FA /* Products */;
 			projectDirPath = "";
@@ -477,6 +484,7 @@
 				A1863B28280C037400C665DE /* SearchResponse.swift in Sources */,
 				A1CACF73281037D100392192 /* ImageAPI.swift in Sources */,
 				A1CB22212808561A006489FA /* ImageRepository.swift in Sources */,
+				A10957D1281832CD0005F493 /* NetworkError.swift in Sources */,
 				A1863B26280BFEFD00C665DE /* Image.swift in Sources */,
 				A1CB21DE2804D972006489FA /* SceneDelegate.swift in Sources */,
 			);
@@ -816,12 +824,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A10957CA2818278C0005F493 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+		A10957D228183F450005F493 /* XCRemoteSwiftPackageReference "RxOptional" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BastiaanJansen/Toast-Swift";
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxOptional";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 5.0.0;
+			};
+		};
+		A10957D52819916B0005F493 /* XCRemoteSwiftPackageReference "Loaf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/schmidyy/Loaf";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
 			};
 		};
 		A1863B19280BF58300C665DE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
@@ -883,10 +899,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A10957CB2818278C0005F493 /* Toast */ = {
+		A10957D328183F450005F493 /* RxOptional */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A10957CA2818278C0005F493 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
+			package = A10957D228183F450005F493 /* XCRemoteSwiftPackageReference "RxOptional" */;
+			productName = RxOptional;
+		};
+		A10957D62819916B0005F493 /* Loaf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A10957D52819916B0005F493 /* XCRemoteSwiftPackageReference "Loaf" */;
+			productName = Loaf;
 		};
 		A1863B1C280BF58300C665DE /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
