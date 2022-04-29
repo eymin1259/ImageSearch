@@ -13,6 +13,7 @@ extension Container {
     func registerDependencies(){
         registerService()
         registerRepository()
+        registerUseCase()
         registerReactor()
         registerViewController()
     }
@@ -29,10 +30,18 @@ extension Container {
         }
     }
     
+    private func registerUseCase() {
+        register(SearchImageUseCaseType.self) {r in
+            let repo = r.resolve(ImageRepositoryType.self)!
+            let useCase = SearchImageUseCase(imageRepository: repo)
+            return useCase
+        }
+    }
+    
     private func registerReactor(){
         register(ImageReactor.self) {r in
-            let repo = r.resolve(ImageRepositoryType.self)!
-            let reactor = ImageReactor(imageRepository: repo)
+            let useCase = r.resolve(SearchImageUseCaseType.self)!
+            let reactor = ImageReactor(searchImageUseCase: useCase)
             return reactor
         }
     }

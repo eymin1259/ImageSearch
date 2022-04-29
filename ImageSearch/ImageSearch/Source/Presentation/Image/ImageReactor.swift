@@ -33,12 +33,12 @@ final class ImageReactor : Reactor {
     }
     
     let initialState: State
-    var imageRepository : ImageRepositoryType
+    var searchImageUseCase : SearchImageUseCaseType
     
     // MARK: initialize
-    init(imageRepository : ImageRepositoryType) {
+    init(searchImageUseCase : SearchImageUseCaseType) {
         self.initialState  = .init()
-        self.imageRepository = imageRepository
+        self.searchImageUseCase = searchImageUseCase
     }
 }
 
@@ -48,7 +48,7 @@ extension ImageReactor {
     func mutate(action: ImageReactor.Action) -> Observable<ImageReactor.Mutation> {
         switch action {
         case .inputQuery(let query):
-            return self.imageRepository.getImages(query: query, page: 1)
+            return self.searchImageUseCase.execute(query: query, page: 1)
                 .map { result in
                     switch result {
                     case .success(let list):
@@ -65,7 +65,7 @@ extension ImageReactor {
             let currentQuery = self.currentState.query
             let startLoading = Observable<Mutation>.just(.setLoading(true))
             let endLoading = Observable<Mutation>.just(.setLoading(false))
-            let loadMoreRes = self.imageRepository.getImages(query: currentQuery, page: nextPage)
+            let loadMoreRes = self.searchImageUseCase.execute(query: currentQuery, page: nextPage)
                 .map { result -> ImageReactor.Mutation in
                     switch result {
                     case .success(let list):
