@@ -15,6 +15,8 @@
 		A10957E9281C2A580005F493 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10957E8281C2A580005F493 /* Image.swift */; };
 		A10957EB281C2B560005F493 /* EntityNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10957EA281C2B560005F493 /* EntityNameSpace.swift */; };
 		A10957ED281C2B710005F493 /* Entity.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10957EC281C2B710005F493 /* Entity.Image.swift */; };
+		A10957FC281E692A0005F493 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A10957FB281E692A0005F493 /* Quick */; };
+		A10957FE281E69320005F493 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = A10957FD281E69320005F493 /* Nimble */; };
 		A1565FA6280D9CF70071829E /* ImageListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1565FA5280D9CF70071829E /* ImageListSection.swift */; };
 		A1863B1D280BF58300C665DE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1C280BF58300C665DE /* RxCocoa */; };
 		A1863B1F280BF58300C665DE /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1E280BF58300C665DE /* RxRelay */; };
@@ -123,6 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10957FC281E692A0005F493 /* Quick in Frameworks */,
+				A10957FE281E69320005F493 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +194,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A10957FA281E692A0005F493 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A10957FF281E69680005F493 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A1095800281E69740005F493 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A1095801281E697B0005F493 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		A1863B2B280C3EFF00C665DE /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +264,7 @@
 				A1CB21F12804D974006489FA /* ImageSearchTests */,
 				A1CB21FB2804D974006489FA /* ImageSearchUITests */,
 				A1CB21D92804D972006489FA /* Products */,
+				A10957FA281E692A0005F493 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,6 +291,9 @@
 		A1CB21F12804D974006489FA /* ImageSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				A1095801281E697B0005F493 /* Data */,
+				A1095800281E69740005F493 /* Domain */,
+				A10957FF281E69680005F493 /* Presentation */,
 				A1CB21F22804D974006489FA /* ImageSearchTests.swift */,
 			);
 			path = ImageSearchTests;
@@ -397,6 +433,10 @@
 				A1CB21F02804D974006489FA /* PBXTargetDependency */,
 			);
 			name = ImageSearchTests;
+			packageProductDependencies = (
+				A10957FB281E692A0005F493 /* Quick */,
+				A10957FD281E69320005F493 /* Nimble */,
+			);
 			productName = ImageSearchTests;
 			productReference = A1CB21EE2804D974006489FA /* ImageSearchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -461,6 +501,8 @@
 				A1CACF7C28118B5E00392192 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A10957D228183F450005F493 /* XCRemoteSwiftPackageReference "RxOptional" */,
 				A10957D52819916B0005F493 /* XCRemoteSwiftPackageReference "Loaf" */,
+				A10957F4281E69010005F493 /* XCRemoteSwiftPackageReference "Nimble" */,
+				A10957F7281E69160005F493 /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = A1CB21D92804D972006489FA /* Products */;
 			projectDirPath = "";
@@ -880,6 +922,22 @@
 				minimumVersion = 0.7.0;
 			};
 		};
+		A10957F4281E69010005F493 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		A10957F7281E69160005F493 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		A1863B19280BF58300C665DE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -948,6 +1006,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A10957D52819916B0005F493 /* XCRemoteSwiftPackageReference "Loaf" */;
 			productName = Loaf;
+		};
+		A10957FB281E692A0005F493 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A10957F7281E69160005F493 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		A10957FD281E69320005F493 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A10957F4281E69010005F493 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
 		};
 		A1863B1C280BF58300C665DE /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
