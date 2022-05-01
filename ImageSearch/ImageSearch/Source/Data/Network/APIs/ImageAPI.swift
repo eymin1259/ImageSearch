@@ -41,8 +41,11 @@ extension ImageAPI : BaseServiceAPI {
     }
     
     var sampleData: Data {
-        let path = Bundle.main.path(forResource: "Mock", ofType: "json") ?? ""
-        let jsonString = try? String(contentsOfFile: path)
-        return jsonString!.data(using: .utf8)!
+        switch self {
+        default:
+            let path = Bundle.main.path(forResource: "DummyImages", ofType: "json") ?? ""
+            let jsonString = try? String(contentsOfFile: path)
+            return jsonString!.data(using: .utf8)!
+        }
     }
 }
