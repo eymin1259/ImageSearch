@@ -9,7 +9,7 @@ import Foundation
 
 
 extension Entity {    
-    struct Image : Codable {
+    struct Image : Codable, Equatable {
         var thumbnail_url : String
         var image_url : String
         var width : Int
