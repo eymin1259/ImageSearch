@@ -18,6 +18,8 @@
 		A10957FC281E692A0005F493 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A10957FB281E692A0005F493 /* Quick */; };
 		A10957FE281E69320005F493 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = A10957FD281E69320005F493 /* Nimble */; };
 		A1095805281E6E700005F493 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1095804281E6E700005F493 /* NetworkTest.swift */; };
+		A1095807281E76A10005F493 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = A1095806281E76A10005F493 /* RxTest */; };
+		A1095809281E76A80005F493 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = A1095808281E76A80005F493 /* RxBlocking */; };
 		A1565FA6280D9CF70071829E /* ImageListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1565FA5280D9CF70071829E /* ImageListSection.swift */; };
 		A1863B1D280BF58300C665DE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1C280BF58300C665DE /* RxCocoa */; };
 		A1863B1F280BF58300C665DE /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A1863B1E280BF58300C665DE /* RxRelay */; };
@@ -126,6 +128,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10957FC281E692A0005F493 /* Quick in Frameworks */,
+				A1095809281E76A80005F493 /* RxBlocking in Frameworks */,
+				A1095807281E76A10005F493 /* RxTest in Frameworks */,
 				A10957FE281E69320005F493 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +440,8 @@
 			packageProductDependencies = (
 				A10957FB281E692A0005F493 /* Quick */,
 				A10957FD281E69320005F493 /* Nimble */,
+				A1095806281E76A10005F493 /* RxTest */,
+				A1095808281E76A80005F493 /* RxBlocking */,
 			);
 			productName = ImageSearchTests;
 			productReference = A1CB21EE2804D974006489FA /* ImageSearchTests.xctest */;
@@ -1016,6 +1022,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A10957F4281E69010005F493 /* XCRemoteSwiftPackageReference "Nimble" */;
 			productName = Nimble;
+		};
+		A1095806281E76A10005F493 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1863B19280BF58300C665DE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		A1095808281E76A80005F493 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1863B19280BF58300C665DE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
 		};
 		A1863B1C280BF58300C665DE /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
