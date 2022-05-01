@@ -13,6 +13,11 @@ import UIKit
 
 protocol NetworkServiceType {
     var provider:  MoyaProvider<MultiTarget> { get }
+    init(
+        isStub: Bool,
+        sampleStatusCode: Int,
+        customEndpointClosure: ((MultiTarget) -> Endpoint)?
+    )
     func request<API>(api: API) -> Observable<Result<SearchResponse<API.Documents>, Error>> where API : BaseServiceAPI
 }
 
@@ -23,15 +28,43 @@ final class NetworkService : NetworkServiceType {
     var provider : MoyaProvider<MultiTarget>
     
     //MARK: initialize
-    init() {
-        self.provider = NetworkService.makeProvider()
+    init(
+        isStub: Bool = false,
+        sampleStatusCode: Int = 200,
+        customEndpointClosure: ((MultiTarget) -> Endpoint)? = nil
+    ) {
+        self.provider = NetworkService.makeProvider(isStub, sampleStatusCode, customEndpointClosure)
     }
     
     //MARK: methods
-    static func makeProvider() -> MoyaProvider<MultiTarget> {
-        // Set network logger plugin
-        let loggerPlugin = NetworkLoggerPlugin()
-        return MoyaProvider<MultiTarget>(plugins: [loggerPlugin])
+    static func makeProvider(
+        _ isStub: Bool = false,
+        _ sampleStatusCode: Int = 200,
+        _ customEndpointClosure: ((MultiTarget) -> Endpoint)? = nil
+    ) -> MoyaProvider<MultiTarget> {
+
+        if isStub == false {
+            let loggerPlugin = NetworkLoggerPlugin()
+            return MoyaProvider<MultiTarget>(plugins: [loggerPlugin])
+        }
+        else { // 테스트용 provider 생성
+            let testEndPointClosure = { (target: MultiTarget) -> Endpoint in
+                let sampleResponseClosure: () -> EndpointSampleResponse = {
+                    EndpointSampleResponse.networkResponse(sampleStatusCode, target.sampleData)
+                }
+                return Endpoint(
+                    url: URL(target: target).absoluteString,
+                    sampleResponseClosure: sampleResponseClosure,
+                    method: target.method,
+                    task: target.task,
+                    httpHeaderFields: target.headers
+                )
+            }
+            return MoyaProvider<MultiTarget>(
+                endpointClosure: customEndpointClosure ?? testEndPointClosure,
+                stubClosure: MoyaProvider.immediatelyStub
+            )
+        }
     }
 
     func request<API>(api: API) -> Observable<Result<SearchResponse<API.Documents>, Error>>  where API : BaseServiceAPI {
