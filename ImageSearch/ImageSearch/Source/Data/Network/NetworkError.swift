@@ -10,6 +10,7 @@ import Foundation
 enum NetworkError : Error {
     case client
     case server
+    case unknown
 }
 
 extension NetworkError : LocalizedError {
@@ -19,6 +20,8 @@ extension NetworkError : LocalizedError {
             return "400 Network client error"
         case .server:
             return "500 Network server error"
+        case .unknown:
+            return "Network unknown error"
         }
     }
 }
