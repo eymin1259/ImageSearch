@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct SearchResponse<Item : Codable> : Codable{
+struct SearchResponseDTO<Item : Codable> : Codable{
     var meta : Meta
     var documents : Item
 }
 
-extension SearchResponse {
+extension SearchResponseDTO {
     struct Meta : Codable {
         var total_count : Int
         var pageable_count : Int

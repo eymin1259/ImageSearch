@@ -44,7 +44,7 @@ class ImageReactorTest: QuickSpec {
                 
                 // then
                 it("첫번째 이미지 페이지를 fetch한다"){
-                    let sampleData = try! JSONDecoder().decode(SearchResponse<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData).documents.map{ item in
+                    let sampleData = try! JSONDecoder().decode(SearchResponseDTO<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData).documents.map{ item in
                         return Image(thumbnail_url: item.thumbnail_url, image_url: item.image_url, width: item.width, height: item.height)
                     }
                     let expected : [ImageListSection] = [.init(images: sampleData)]
@@ -68,7 +68,7 @@ class ImageReactorTest: QuickSpec {
                 
                 // then
                 it("다음 이미지 페이지를 fetch한다") {
-                    let sampleData = try! JSONDecoder().decode(SearchResponse<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData).documents.map{ item in
+                    let sampleData = try! JSONDecoder().decode(SearchResponseDTO<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData).documents.map{ item in
                         return Image(thumbnail_url: item.thumbnail_url, image_url: item.image_url, width: item.width, height: item.height)
                     }
                     let expected : [ImageListSection] = [.init(images: sampleData)]

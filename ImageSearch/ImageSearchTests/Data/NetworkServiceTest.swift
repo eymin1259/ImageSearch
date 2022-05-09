@@ -21,7 +21,7 @@ class NetworkServiceTest: QuickSpec {
         // given
         describe("네트워크 정상") {
             var stubNetwork : NetworkServiceType!
-            var result : Result<SearchResponse<ImageAPI.Documents>, Error>!
+            var result : Result<SearchResponseDTO<ImageAPI.Documents>, Error>!
             
             // when 1
             context("200 이미지 검색 결과 정상이면") {
@@ -33,7 +33,7 @@ class NetworkServiceTest: QuickSpec {
                 // then 1
                 it("이미지 리스트 데이터를 받는다") {
                     let expectDummy = ImageAPI.searchImages(query: "", page: 1).sampleData
-                    let decodedExpect = try! JSONDecoder().decode(SearchResponse<ImageAPI.Documents>.self, from: expectDummy)
+                    let decodedExpect = try! JSONDecoder().decode(SearchResponseDTO<ImageAPI.Documents>.self, from: expectDummy)
                     
                     _ = result.map { res in
                         switch res {

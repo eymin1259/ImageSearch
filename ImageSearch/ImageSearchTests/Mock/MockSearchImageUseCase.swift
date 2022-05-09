@@ -29,7 +29,7 @@ final class MockSearchImageUseCase : SearchImageUseCaseType {
                 emit.onNext(.failure(NetworkError.client))
                 emit.onCompleted()
             } else {
-                let sampleData = try! JSONDecoder().decode(SearchResponse<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData)
+                let sampleData = try! JSONDecoder().decode(SearchResponseDTO<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData)
                 
                 let domainImages = sampleData.documents.map { item in
                     return Image(thumbnail_url: item.thumbnail_url, image_url: item.image_url, width: item.width, height: item.height)

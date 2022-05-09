@@ -30,7 +30,7 @@ class SearchImageUseCaseTest: XCTestCase {
     func test_Repository에서_getImages성공하면_이미지_데이터를_가져옵니다()  {
         // given
         mockImageRepository.setGetImages(toFail: false)
-        let sampleData = try! JSONDecoder().decode(SearchResponse<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData).documents.map{ item in
+        let sampleData = try! JSONDecoder().decode(SearchResponseDTO<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData).documents.map{ item in
             return Image(thumbnail_url: item.thumbnail_url, image_url: item.image_url, width: item.width, height: item.height)
         }
         

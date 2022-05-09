@@ -18,8 +18,8 @@ final class MockImageRepository : ImageRepositoryType {
         self.makeFailedGetImages = isFail
     }
     
-    func getImages(query: String, page: Int) -> Observable<Result<SearchResponse<ImageAPI.Documents>, Error>> {
-        return Observable<Result<SearchResponse<ImageAPI.Documents>, Error>>.create { [weak self] emit in
+    func getImages(query: String, page: Int) -> Observable<Result<SearchResponseDTO<ImageAPI.Documents>, Error>> {
+        return Observable<Result<SearchResponseDTO<ImageAPI.Documents>, Error>>.create { [weak self] emit in
             guard let self = self else {
                 emit.onNext(.failure(NetworkError.unknown))
                 emit.onCompleted()
@@ -29,7 +29,7 @@ final class MockImageRepository : ImageRepositoryType {
                 emit.onNext(.failure(NetworkError.client))
                 emit.onCompleted()
             } else {
-                let sampleData = try! JSONDecoder().decode(SearchResponse<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData)
+                let sampleData = try! JSONDecoder().decode(SearchResponseDTO<ImageAPI.Documents>.self, from: ImageAPI.searchImages(query: "", page: 1).sampleData)
                 emit.onNext(.success(sampleData))
                 emit.onCompleted()
             }

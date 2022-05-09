@@ -18,7 +18,7 @@ protocol NetworkServiceType {
         sampleStatusCode: Int,
         customEndpointClosure: ((MultiTarget) -> Endpoint)?
     )
-    func request<API>(api: API) -> Observable<Result<SearchResponse<API.Documents>, Error>> where API : BaseServiceAPI
+    func request<API>(api: API) -> Observable<Result<SearchResponseDTO<API.Documents>, Error>> where API : BaseServiceAPI
 }
 
 final class NetworkService : NetworkServiceType {
@@ -67,13 +67,13 @@ final class NetworkService : NetworkServiceType {
         }
     }
 
-    func request<API>(api: API) -> Observable<Result<SearchResponse<API.Documents>, Error>>  where API : BaseServiceAPI {
+    func request<API>(api: API) -> Observable<Result<SearchResponseDTO<API.Documents>, Error>>  where API : BaseServiceAPI {
         let endpoint = MultiTarget.target(api)
         return self.provider.rx.request(endpoint)
             .filterSuccessfulStatusCodes()
             .asObservable()
             .map {
-                let response = try JSONDecoder().decode(SearchResponse<API.Documents>.self, from: $0.data)
+                let response = try JSONDecoder().decode(SearchResponseDTO<API.Documents>.self, from: $0.data)
                 return .success(response)
             }
             .catch { err in

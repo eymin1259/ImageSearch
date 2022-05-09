@@ -13,7 +13,7 @@ enum ImageAPI {
 }
 
 extension ImageAPI : BaseServiceAPI {
-    typealias Documents = [Entity.Image]
+    typealias Documents = [ImageDTO]
     
     var path: String {
         switch self {
