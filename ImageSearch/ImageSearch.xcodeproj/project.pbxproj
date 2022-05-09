@@ -225,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				A109580A281EC49E0005F493 /* SearchImageUseCaseTest.swift */,
-				A109580C281FFC730005F493 /* Mock */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -236,13 +235,6 @@
 				A1095804281E6E700005F493 /* NetworkServiceTest.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		A109580C281FFC730005F493 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		A1095813282941270005F493 /* Mock */ = {
