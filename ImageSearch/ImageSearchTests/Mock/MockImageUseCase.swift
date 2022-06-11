@@ -1,5 +1,5 @@
 //
-//  MockSearchImageUseCase.swift
+//  MockImageUseCase.swift
 //  ImageSearchTests
 //
 //  Created by yongmin lee on 5/9/22.
@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 @testable import ImageSearch
 
-final class MockSearchImageUseCase : SearchImageUseCaseType {
+final class MockImageUseCase : ImageUseCase {
     
     private var makeExecuteFail = false
     

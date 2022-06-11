@@ -1,5 +1,5 @@
 //
-//  ImageRepository.swift
+//  ImageRepositoryImpl.swift
 //  ImageSearch
 //
 //  Created by yongmin lee on 4/14/22.
@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-final class ImageRepository : ImageRepositoryType {
+final class ImageRepositoryImpl : ImageRepository {
     
     //MARK: properties
     var networkService : NetworkServiceType

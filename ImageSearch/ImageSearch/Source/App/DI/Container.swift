@@ -23,33 +23,33 @@ extension Container {
     }
     
     private func registerRepository() {
-        register(ImageRepositoryType.self) {r in
+        register(ImageRepository.self) {r in
             let network = r.resolve(NetworkServiceType.self)!
-            let repo = ImageRepository(networkService: network)
+            let repo = ImageRepositoryImpl(networkService: network)
             return repo
         }
     }
     
     private func registerUseCase() {
-        register(SearchImageUseCaseType.self) {r in
-            let repo = r.resolve(ImageRepositoryType.self)!
-            let useCase = SearchImageUseCase(imageRepository: repo)
+        register(ImageUseCase.self) {r in
+            let repo = r.resolve(ImageRepository.self)!
+            let useCase = ImageUseCaseImpl(imageRepository: repo)
             return useCase
         }
     }
     
     private func registerReactor(){
-        register(ImageReactor.self) {r in
-            let useCase = r.resolve(SearchImageUseCaseType.self)!
-            let reactor = ImageReactor(searchImageUseCase: useCase)
+        register(SearchImageReactor.self) {r in
+            let useCase = r.resolve(ImageUseCase.self)!
+            let reactor = SearchImageReactor(searchImageUseCase: useCase)
             return reactor
         }
     }
     
     private func registerViewController(){
-        register(ImageViewController.self) {r in
-            let reactor = r.resolve(ImageReactor.self)!
-            let vc = ImageViewController(reactor: reactor)
+        register(SearchImageViewController.self) {r in
+            let reactor = r.resolve(SearchImageReactor.self)!
+            let vc = SearchImageViewController(reactor: reactor)
             return vc
         }
     }

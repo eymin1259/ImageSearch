@@ -1,5 +1,5 @@
 //
-//  ImageReactor.swift
+//  SearchImageReactor.swift
 //  ImageSearch
 //
 //  Created by yongmin lee on 4/14/22.
@@ -8,7 +8,7 @@
 import Foundation
 import ReactorKit
 
-final class ImageReactor : Reactor {
+final class SearchImageReactor : Reactor {
 
     //MARK: properties
     enum Action {
@@ -33,19 +33,19 @@ final class ImageReactor : Reactor {
     }
     
     let initialState: State
-    var searchImageUseCase : SearchImageUseCaseType
+    var searchImageUseCase : ImageUseCase
     
     // MARK: initialize
-    init(searchImageUseCase : SearchImageUseCaseType) {
+    init(searchImageUseCase : ImageUseCase) {
         self.initialState  = .init()
         self.searchImageUseCase = searchImageUseCase
     }
 }
 
-extension ImageReactor {
+extension SearchImageReactor {
     
     //MARK: Mutate
-    func mutate(action: ImageReactor.Action) -> Observable<ImageReactor.Mutation> {
+    func mutate(action: SearchImageReactor.Action) -> Observable<SearchImageReactor.Mutation> {
         switch action {
         case .inputQuery(let query):
             return self.searchImageUseCase.execute(query: query, page: 1)
@@ -66,7 +66,7 @@ extension ImageReactor {
             let startLoading = Observable<Mutation>.just(.setLoading(true))
             let endLoading = Observable<Mutation>.just(.setLoading(false))
             let loadMoreRes = self.searchImageUseCase.execute(query: currentQuery, page: nextPage)
-                .map { result -> ImageReactor.Mutation in
+                .map { result -> SearchImageReactor.Mutation in
                     switch result {
                     case .success(let list):
                         return  Mutation.appendImages(list.items, list.isEnd)
@@ -79,7 +79,7 @@ extension ImageReactor {
     }
     
     //MARK: Reduce
-    func reduce(state: State, mutation: ImageReactor.Mutation) -> State {
+    func reduce(state: State, mutation: SearchImageReactor.Mutation) -> State {
         var newState = state
         switch mutation {
         case .setImages(let query, let imageList, let isEnd):

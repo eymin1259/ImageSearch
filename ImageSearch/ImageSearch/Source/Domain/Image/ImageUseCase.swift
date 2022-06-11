@@ -1,5 +1,5 @@
 //
-//  SearchImageUseCase.swift
+//  ImageUseCase.swift
 //  ImageSearch
 //
 //  Created by yongmin lee on 4/29/22.
@@ -8,17 +8,17 @@
 import Foundation
 import RxSwift
 
-protocol SearchImageUseCaseType {
+protocol ImageUseCase {
     func execute(query:String, page:Int) -> Observable<Result<List<Image>, Error>>
 }
 
-final class SearchImageUseCase : SearchImageUseCaseType {
+final class ImageUseCaseImpl : ImageUseCase {
 
     //MARK: properties
-    var imageRepository : ImageRepositoryType
+    var imageRepository : ImageRepository
     
     // MARK: initialize
-    init(imageRepository : ImageRepositoryType) {
+    init(imageRepository : ImageRepository) {
         self.imageRepository = imageRepository
     }
     

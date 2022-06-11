@@ -11,7 +11,7 @@ import XCTest
 class SearchImageUseCaseTest: XCTestCase {
 
     // system under test
-    var sut : SearchImageUseCaseType!
+    var sut : ImageUseCase!
     var mockImageRepository : MockImageRepository!
     
     override func setUpWithError() throws {
@@ -19,7 +19,7 @@ class SearchImageUseCaseTest: XCTestCase {
         
         // given
         mockImageRepository = MockImageRepository()
-        sut = SearchImageUseCase(imageRepository: mockImageRepository)
+        sut = ImageUseCaseImpl(imageRepository: mockImageRepository)
     }
 
     override func tearDownWithError() throws {

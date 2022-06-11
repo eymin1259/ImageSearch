@@ -1,5 +1,5 @@
 //
-//  ImageCell.swift
+//  SearchImageCell.swift
 //  ImageSearch
 //
 //  Created by yongmin lee on 4/16/22.
@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 import SnapKit
 
-final class ImageCell : UICollectionViewCell {
+final class SearchImageCell : UICollectionViewCell {
     
     //MARK: properties
     static let id = "ImageCellID"

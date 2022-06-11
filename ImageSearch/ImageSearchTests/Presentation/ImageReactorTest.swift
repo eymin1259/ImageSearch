@@ -22,13 +22,13 @@ class ImageReactorTest: QuickSpec {
         // given
         describe("성공케이스를 반환하는 usecase가 주입된 reactor에") {
             
-            var mockSearchImageUseCase : MockSearchImageUseCase!
-            var reactor : ImageReactor!
+            var mockSearchImageUseCase : MockImageUseCase!
+            var reactor : SearchImageReactor!
             
             beforeEach {
-                mockSearchImageUseCase = MockSearchImageUseCase()
+                mockSearchImageUseCase = MockImageUseCase()
                 mockSearchImageUseCase.setExecute(toFail: false)
-                reactor = ImageReactor(searchImageUseCase: mockSearchImageUseCase)
+                reactor = SearchImageReactor(searchImageUseCase: mockSearchImageUseCase)
             }
             
             // when
@@ -81,13 +81,13 @@ class ImageReactorTest: QuickSpec {
         // given
         describe("실패케이스를 반환하는 usecase가 주입된 reactor에") {
 
-            var mockSearchImageUseCase : MockSearchImageUseCase!
-            var reactor : ImageReactor!
+            var mockSearchImageUseCase : MockImageUseCase!
+            var reactor : SearchImageReactor!
 
             beforeEach {
-                mockSearchImageUseCase = MockSearchImageUseCase()
+                mockSearchImageUseCase = MockImageUseCase()
                 mockSearchImageUseCase.setExecute(toFail: true)
-                reactor = ImageReactor(searchImageUseCase: mockSearchImageUseCase)
+                reactor = SearchImageReactor(searchImageUseCase: mockSearchImageUseCase)
             }
 
             // when

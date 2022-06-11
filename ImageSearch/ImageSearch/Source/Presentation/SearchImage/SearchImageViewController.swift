@@ -1,5 +1,5 @@
 //
-//  ImageViewController.swift
+//  SearchImageViewController.swift
 //  ImageSearch
 //
 //  Created by yongmin lee on 4/12/22.
@@ -13,13 +13,13 @@ import RxDataSources
 import RxOptional
 import Loaf
 
-final class ImageViewController : UIViewController, View {
+final class SearchImageViewController : UIViewController, View {
     
     // MARK: properties
-    typealias Reactor = ImageReactor
+    typealias Reactor = SearchImageReactor
     var disposeBag : DisposeBag = .init()
     let collectionDataSource = RxCollectionViewSectionedReloadDataSource<ImageListSection> { datasource, collectionview, index, item in
-        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: ImageCell.id, for: index) as! ImageCell
+        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: SearchImageCell.id, for: index) as! SearchImageCell
         cell.setImage(with: item.thumbnail_url)
         return cell
     }
@@ -90,7 +90,7 @@ final class ImageViewController : UIViewController, View {
         layout.minimumInteritemSpacing = Metric.interitemSpacing
         layout.itemSize = Metric.itemSize
         imageCollectionView.collectionViewLayout = layout
-        imageCollectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.id)
+        imageCollectionView.register(SearchImageCell.self, forCellWithReuseIdentifier: SearchImageCell.id)
         imageCollectionView.snp.makeConstraints { make in
             make.top.equalTo(imageSearchBar.snp.bottom)
             make.leading.equalTo(guide)
@@ -101,9 +101,9 @@ final class ImageViewController : UIViewController, View {
 }
 
 //MARK: Binding
-extension ImageViewController {
+extension SearchImageViewController {
     
-    func bind(reactor: ImageReactor) {
+    func bind(reactor: SearchImageReactor) {
         
         // action binding
         imageSearchBar.rx.text

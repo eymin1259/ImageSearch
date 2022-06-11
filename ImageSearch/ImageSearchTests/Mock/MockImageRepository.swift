@@ -10,7 +10,7 @@ import XCTest
 import RxSwift
 @testable import ImageSearch
 
-final class MockImageRepository : ImageRepositoryType {
+final class MockImageRepository : ImageRepository {
     
     private var makeFailedGetImages = false
     
