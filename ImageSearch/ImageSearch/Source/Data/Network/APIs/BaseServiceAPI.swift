@@ -10,6 +10,12 @@ import Moya
 
 protocol BaseServiceAPI: TargetType {
     associatedtype Documents: Codable
+    var baseURL: URL { get }
+    var headers: [String : String]? { get }
+    var path: String { get }
+    var method: Moya.Method { get }
+    var task: Task { get }
+    var sampleData: Data { get }
 }
 
 extension BaseServiceAPI {
