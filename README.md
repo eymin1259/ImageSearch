@@ -14,7 +14,3 @@
 - Swinject
 - Quick
 - Nimble
-
-## [ Develop Environment ]
-- Language : Swift 5.X
-- Xcode : 12.X
