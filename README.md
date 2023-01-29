@@ -1,16 +1,11 @@
 # ImageSearch
-이미지 검색 앱 개발
-- 카카오 이미지 검색 API 활용
-- Clean-Architecture 기반의 Presentation Layer, Domin Layer, Data Layer 분리
-- ReactorKit을 적용하여 단방향 반응형 아키텍처 구현
+- 카카오 이미지 검색 API를 활용한 이미지 검색 어플리케이션 입니다.
+- Clean Architecture 기반의 Presentation Layer, Domin Layer, Data Layer 분리
+- ReactorKit 프레임워크 기반의 Unidirectional Data Flow 반응형 앱 개발
 - Quick, Nimble을 사용하여 테스트 코드 작성
 
-## [ Technical Skills ]
-- Clean Architecture
-- ReactorKit
+## Skills 
+- Clean Architecture, ReactorKit 
 - RxSwift, RxCocoa, RxDataSources
-- SnapKit
-- Moya
 - Swinject
-- Quick
-- Nimble
+- Quick, Nimble
